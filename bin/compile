@@ -10,6 +10,9 @@ PHP_VERSION="5.3.10"
 PHP_PATH="php"
 NEWRELIC_VERSION="3.5.5.172"
 
+# git hash
+GIT_HASH=`cat refs/heads/master`
+
 BIN_DIR=$(dirname $0)
 BUILD_DIR=$1
 CACHE_DIR=$2
@@ -19,6 +22,10 @@ LP_DIR=`cd $(dirname $0); cd ..; pwd`
 shopt -s dotglob
 
 cd $BUILD_DIR
+
+# Create GIT_HASH file for PHP to read
+echo "-----> Creating GIT_HASH file"
+echo $GIT_HASH > GIT_HASH
 
 # move app things to www
 mkdir -p $CACHE_DIR/www
