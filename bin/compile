@@ -11,7 +11,7 @@ PHP_PATH="php"
 NEWRELIC_VERSION="3.5.5.172"
 
 # git hash
-GIT_HASH=`cat refs/heads/master`
+GIT_HASH=`git log -1 --format="%H"`
 
 BIN_DIR=$(dirname $0)
 BUILD_DIR=$1
